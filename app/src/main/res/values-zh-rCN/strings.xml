@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">时光的诗</string>
+    <string name="nav_header_title">时光的诗</string>
+    <string name="nav_header_subtitle">让诗词如影随形</string>
+    <string name="action_settings">设置</string>
+    <string name="fullscreen">全屏</string>
+</resources>

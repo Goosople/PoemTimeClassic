@@ -1,4 +1,4 @@
-package io.goosople.poemtime.ui.slideshow
+package io.goosople.poemtime.ui.alarm
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,12 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import io.goosople.poemtime.R
-import io.goosople.poemtime.databinding.FragmentSlideshowBinding
+import io.goosople.poemtime.databinding.FragmentAlarmBinding
 
-class SlideshowFragment : Fragment() {
+class AlarmFragment : Fragment() {
 
-    private lateinit var slideshowViewModel: SlideshowViewModel
-    private var _binding: FragmentSlideshowBinding? = null
+    private lateinit var alarmViewModel: AlarmViewModel
+    private var _binding: FragmentAlarmBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,14 +25,14 @@ class SlideshowFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        slideshowViewModel =
-            ViewModelProvider(this).get(SlideshowViewModel::class.java)
+        alarmViewModel =
+            ViewModelProvider(this).get(AlarmViewModel::class.java)
 
-        _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
+        _binding = FragmentAlarmBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textSlideshow
-        slideshowViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.textAlarm
+        alarmViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

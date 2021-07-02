@@ -6,17 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
+    <TextClock
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:text="@string/time_alt"
+        android:textSize="60sp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:format12Hour="hh:mm"
+        android:format24Hour="HH:mm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.381966"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextClock
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date_alt"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:format12Hour="yyyy/MM/dd E"
+        android:format24Hour="yyyy/MM/dd E"
+        android:alpha="0.8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/time" />
+
+
+    <com.jinrishici.sdk.android.view.JinrishiciTextView
+        android:id="@+id/poem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:jrsc_show_loading_text="true"
+        app:jrsc_text_loading="@string/poem_alt"
+        app:jrsc_text_error="@string/error"
+        app:jrsc_refresh_on_click="true"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

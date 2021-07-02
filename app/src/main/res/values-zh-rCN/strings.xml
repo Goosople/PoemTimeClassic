@@ -3,6 +3,14 @@
     <string name="app_name">时光的诗</string>
     <string name="nav_header_title">时光的诗</string>
     <string name="nav_header_subtitle">让诗词如影随形</string>
-    <string name="action_settings">设置</string>
     <string name="fullscreen">全屏</string>
+    <string name="menu_home">主页</string>
+    <string name="time_alt">时光的诗</string>
+    <string name="about">关于</string>
+    <string name="date_alt">让诗词如影随形</string>
+    <string name="poem_alt">让生活变得诗意</string>
+    <string name="chpoem">另一首诗</string>
+    <string name="menu_settings">设置</string>
+    <string name="menu_alarm">闹钟</string>
+    <string name="error">出错了。请检查您的互联网连接。\n点这里重试。</string>
 </resources>

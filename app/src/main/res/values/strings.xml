@@ -16,4 +16,13 @@
     <string name="poem_alt">Make your life a poem</string>
     <string name="chpoem">Change a poem</string>
     <string name="error">Something went wrong.\nPlease check your Internet connection, and click here to try again.</string>
+    <string name="dark">Dark Mode</string>
+    <string name="license">License</string>
+    <string name="feedback">Feedback</string>
+    <string name="feedback_sum">Report technical issues or suggest new features</string>
+    <!-- Preference Titles -->
+
+    <!-- Messages Preferences -->
+
+    <!-- Sync Preferences -->
 </resources>

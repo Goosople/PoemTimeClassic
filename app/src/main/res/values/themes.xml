@@ -22,4 +22,8 @@
     <style name="Theme.时光的诗.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.时光的诗.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="ThemeOverlay.时光的诗.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/white</item>
+        <item name="fullscreenTextColor">@color/black</item>
+    </style>
 </resources>

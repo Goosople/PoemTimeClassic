@@ -17,4 +17,5 @@
     <string name="license">开源许可证</string>
     <string name="feedback">反馈</string>
     <string name="feedback_sum">向开发者反馈错误、提供建议，或者互相交流\n请联系微信：goosople / QQ：3295517103</string>
+    <string name="fullscreen_exit">退出全屏</string>
 </resources>

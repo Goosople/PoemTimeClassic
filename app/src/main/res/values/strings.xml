@@ -20,6 +20,7 @@
     <string name="license">License</string>
     <string name="feedback">Feedback</string>
     <string name="feedback_sum">Report technical issues or suggest new features</string>
+    <string name="fullscreen_exit">Exit Fullscreen</string>
     <!-- Preference Titles -->
 
     <!-- Messages Preferences -->

@@ -1,7 +1,8 @@
 <resources>
 
-    <style name="Widget.Theme.时光的诗.ButtonBar.Fullscreen" parent="">
+    <style name="Widget.Theme.时光的诗.ButtonBar.Fullscreen" parent="Theme.时光的诗.NoActionBar">
         <item name="android:background">@color/black_overlay</item>
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 </resources>

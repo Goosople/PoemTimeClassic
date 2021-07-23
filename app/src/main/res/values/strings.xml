@@ -21,6 +21,9 @@
     <string name="feedback">Feedback</string>
     <string name="feedback_sum">Report technical issues or suggest new features</string>
     <string name="fullscreen_exit">Exit Fullscreen</string>
+    <string name="settings_online">Online services</string>
+    <string name="online_sum_on">Allow app to get poem online</string>
+    <string name="online_sum_off">Show local poems</string>
     <!-- Preference Titles -->
 
     <!-- Messages Preferences -->

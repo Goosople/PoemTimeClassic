@@ -1,4 +1,5 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <!--    <PreferenceCategory app:title="@string/messages_header">
 
@@ -17,6 +18,13 @@
 
     </PreferenceCategory>  -->
 
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="online_service"
+        android:title="@string/settings_online"
+        android:summaryOn="@string/online_sum_on"
+        android:summaryOff="@string/online_sum_off" />
+
     <PreferenceCategory app:title="@string/about">
 
 <!--        <SwitchPreferenceCompat
@@ -29,10 +37,6 @@
             app:summaryOff="@string/attachment_summary_off"
             app:summaryOn="@string/attachment_summary_on"
             app:title="@string/attachment_title" /> -->
-
-        <Preference
-            app:key="license"
-            app:title="@string/license" />
 
         <Preference
             app:key="feedback"

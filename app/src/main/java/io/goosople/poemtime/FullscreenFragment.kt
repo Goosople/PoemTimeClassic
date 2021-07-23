@@ -6,9 +6,30 @@ import android.view.*
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.preference.PreferenceManager
 import io.goosople.poemtime.databinding.FragmentFullscreenBinding
 
 class FullscreenFragment : Fragment() {
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        menu.clear()
+        super.onCreateOptionsMenu(menu, inflater)
+        requireActivity().menuInflater.inflate(R.menu.fs, menu)
+    }
+
+    /**标题栏监听事件 */
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.fullscreen_exit -> {
+                Navigation.findNavController(requireView()).navigateUp()
+            }
+            else -> {
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     private val hideHandler = Handler()
     @Suppress("InlinedApi")
     private val hidePart2Runnable = Runnable {
@@ -58,7 +79,7 @@ private var _binding: FragmentFullscreenBinding? = null
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
       _binding = FragmentFullscreenBinding.inflate(inflater, container, false)
       return binding.root

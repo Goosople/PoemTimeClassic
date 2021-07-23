@@ -1,18 +1,23 @@
 package io.goosople.poemtime
 
 
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import com.google.android.material.navigation.NavigationView
+import android.view.WindowInsets
+import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.navigation.NavigationView
 import io.goosople.poemtime.databinding.ActivityMainBinding
+import org.json.JSONObject
+import java.io.BufferedReader
+import java.io.InputStreamReader
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,6 +46,28 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
+    private fun getKeyString(num: Int, jsonString: String, key: String): String {
+        var jsonObj = JSONObject(jsonString)
+        val array = jsonObj.getJSONArray("poems")
+        jsonObj = array.getJSONObject(num)
+        return jsonObj.getString(key)
+    }
+
+    private fun getPoem(): String {
+        val input = assets.open("PoemDATA.json")
+        val inputStreamReader = BufferedReader(InputStreamReader(input))
+        return inputStreamReader.toString()
+    }
+
+    fun getPoemContent(num: Int): String {
+        return getKeyString(num, getPoem(), "poem")
+    }
+    fun getPoemDetail(num: Int): String {
+        val poet = getKeyString(num, getPoem(), "poet")
+        val title = getKeyString(num, getPoem(), "title")
+        return "$poet《$title》"
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
@@ -49,7 +76,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.fullscreen -> {
-            findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.homeFullscreen)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                window.insetsController?.also {
+                    it.hide(WindowInsets.Type.statusBars())
+                    it.hide(WindowInsets.Type.navigationBars())
+                }
+                supportActionBar?.hide()
+            } else {
+                findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.homeFullscreen)
+            }
             true
         }
 

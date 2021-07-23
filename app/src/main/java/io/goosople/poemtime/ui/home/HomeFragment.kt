@@ -2,12 +2,11 @@ package io.goosople.poemtime.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import io.goosople.poemtime.R
+import androidx.preference.PreferenceManager
 import io.goosople.poemtime.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -29,8 +28,31 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity)
+        val onlineService = sharedPreferences.getBoolean("online_service", true)
+        if (onlineService) {
+            binding.poemLocal.visibility = View.GONE
+            binding.poemLocalDetail.visibility = View.GONE
+            binding.con.visibility = View.GONE
+        }
+        else{
+            binding.poem.visibility = View.GONE
+            val poemNum = sharedPreferences.getInt("poemNum", 1)
+            with(sharedPreferences.edit()) {
+                putInt("poemNum", poemNum)
+                commit()
+            }
+            poemInit(poemNum)
+        }
 
         return binding.root
+    }
+
+
+    private fun poemInit(num: Int) {
+        val poemNumText: CharSequence = num.toString()
+        binding.poemNum.setText(poemNumText)
+
     }
 
     override fun onDestroyView() {

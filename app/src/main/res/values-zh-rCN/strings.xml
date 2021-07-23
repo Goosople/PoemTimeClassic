@@ -18,4 +18,7 @@
     <string name="feedback">反馈</string>
     <string name="feedback_sum">向开发者反馈错误、提供建议，或者互相交流\n请联系微信：goosople / QQ：3295517103</string>
     <string name="fullscreen_exit">退出全屏</string>
+    <string name="settings_online">在线服务</string>
+    <string name="online_sum_on">允许应用在线获取诗词</string>
+    <string name="online_sum_off">使用本地诗词</string>
 </resources>

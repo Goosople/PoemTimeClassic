@@ -15,9 +15,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import io.goosople.poemtime.databinding.ActivityMainBinding
-import org.json.JSONObject
-import java.io.BufferedReader
-import java.io.InputStreamReader
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,28 +41,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-    }
-
-    private fun getKeyString(num: Int, jsonString: String, key: String): String {
-        var jsonObj = JSONObject(jsonString)
-        val array = jsonObj.getJSONArray("poems")
-        jsonObj = array.getJSONObject(num)
-        return jsonObj.getString(key)
-    }
-
-    private fun getPoem(): String {
-        val input = assets.open("PoemDATA.json")
-        val inputStreamReader = BufferedReader(InputStreamReader(input))
-        return inputStreamReader.toString()
-    }
-
-    fun getPoemContent(num: Int): String {
-        return getKeyString(num, getPoem(), "poem")
-    }
-    fun getPoemDetail(num: Int): String {
-        val poet = getKeyString(num, getPoem(), "poet")
-        val title = getKeyString(num, getPoem(), "title")
-        return "$poet《$title》"
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

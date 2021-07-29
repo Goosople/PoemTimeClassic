@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 supportActionBar?.hide()
             } else {
-                findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.homeFullscreen)
+                findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.fullscreenActivity)
             }
             true
         }

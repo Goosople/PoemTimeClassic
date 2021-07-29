@@ -19,13 +19,11 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="Theme.时光的诗.Fullscreen" parent="Theme.时光的诗.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
     <style name="Theme.时光的诗.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.时光的诗.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-    <style name="ThemeOverlay.时光的诗.FullscreenContainer" parent="">
-        <item name="fullscreenBackgroundColor">@color/white</item>
-        <item name="fullscreenTextColor">@color/black</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowIsTranslucent">true</item>
-    </style>
 </resources>

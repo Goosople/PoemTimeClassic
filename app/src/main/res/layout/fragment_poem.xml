@@ -6,52 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/time_layout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25">
-
-        <TextClock
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/rubik_medium"
-            android:format12Hour="hh:mm"
-            android:format24Hour="HH:mm"
-            android:gravity="center"
-            android:text="@string/time_alt"
-            android:textSize="75sp"
-            android:textColor="@color/text" />
-
-        <TextClock
-            android:id="@+id/date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:alpha="0.5"
-            android:fontFamily="@font/rubik"
-            android:format12Hour="yyyy/MM/dd E"
-            android:format24Hour="yyyy/MM/dd E"
-            android:gravity="center"
-            android:text="@string/date_alt"
-            android:textSize="20sp"
-            android:textColor="@color/text" />
-
-    </LinearLayout>
-
     <com.jinrishici.sdk.android.view.JinrishiciTextView
         android:id="@+id/poem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="serif"
         android:gravity="center"
-        android:textSize="25sp"
+        android:textSize="40sp"
         android:textColor="@color/text"
         app:jrsc_refresh_on_click="true"
         app:jrsc_show_error="false"
@@ -62,8 +23,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/time_layout"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
 
     <TextView
         android:id="@+id/poemLocal"
@@ -74,11 +35,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/time_layout"
-        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4"
         android:fontFamily="serif"
         android:gravity="center"
-        android:textSize="25sp" />
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/poemLocalDetail"
@@ -94,7 +55,7 @@
         android:alpha="0.8"
         android:fontFamily="serif"
         android:gravity="center"
-        android:textSize="20sp" />
+        android:textSize="25sp" />
 
     <LinearLayout
         android:id="@+id/con"
@@ -109,26 +70,26 @@
 
         <ImageButton
             android:id="@+id/button_last"
-            android:background="#00000000"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@drawable/last"
             android:layout_weight="2"
-            tools:ignore="ContentDescription" />
+            android:background="#00000000"
+            android:src="@drawable/last"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <EditText
             android:id="@+id/poem_num"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:alpha="0.6"
             android:ems="10"
-            android:textSize="15sp"
+            android:gravity="center"
             android:imeOptions="actionDone"
             android:inputType="number"
-            android:layout_weight="1"
-            android:gravity="center"
             android:textColor="@color/text"
-            android:alpha="0.6"
-            tools:ignore="Autofill,HardcodedText,LabelFor" />
+            android:textSize="15sp"
+            tools:ignore="Autofill,HardcodedText,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/poem_total"
@@ -136,22 +97,23 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
+            android:alpha="0.6"
             android:text=" / 2362"
             android:textSize="15sp"
             android:layout_weight="1"
             android:textColor="@color/text"
-            android:alpha="0.6"
             tools:ignore="HardcodedText" />
 
         <ImageButton
             android:id="@+id/button_next"
-            android:background="#00000000"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@drawable/next"
             android:layout_weight="2"
-            tools:ignore="ContentDescription" />
+            android:background="#00000000"
+            android:src="@drawable/next"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

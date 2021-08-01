@@ -21,4 +21,5 @@
     <string name="settings_online">在线服务</string>
     <string name="online_sum_on">允许应用在线获取诗词</string>
     <string name="online_sum_off">使用本地诗词</string>
+    <string name="menu_poem">读诗</string>
 </resources>

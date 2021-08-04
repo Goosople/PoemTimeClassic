@@ -6,7 +6,7 @@ plugins {
 android {
     signingConfigs {
         release {
-            storeFile file('D:\\Android\\PoemTime\\sign_release.jks')
+            storeFile file('../sign_release.jks')
             storePassword '060823'
             keyAlias 'key0'
             keyPassword '060823'

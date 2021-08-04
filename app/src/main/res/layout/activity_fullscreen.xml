@@ -4,7 +4,7 @@
     android:id="@+id/fslayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+    android:theme="@style/Theme.时光的诗.Fullscreen"
     android:background="#88f8f8f8" >
     <fragment
         android:id="@+id/fs"

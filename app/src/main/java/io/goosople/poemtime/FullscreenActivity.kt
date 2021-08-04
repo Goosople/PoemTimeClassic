@@ -3,7 +3,6 @@ package io.goosople.poemtime
 import android.os.Bundle
 import android.view.View
 import android.view.Window
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -17,8 +16,8 @@ class FullscreenActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
+        super.onResume()
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
-        super.onResume()
     }
 }

@@ -25,7 +25,8 @@
     <activity
         android:id="@+id/fullscreenActivity"
         android:name="io.goosople.poemtime.FullscreenActivity"
-        android:label="FullscreenActivity" />
+        android:label="FullscreenActivity"
+        tools:layout="@layout/activity_fullscreen" />
     <fragment
         android:id="@+id/poemFragment"
         android:name="io.goosople.poemtime.PoemFragment"

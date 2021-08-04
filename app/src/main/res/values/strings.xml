@@ -25,7 +25,6 @@
     <string name="online_sum_on">Allow app to get poem online</string>
     <string name="online_sum_off">Show local poems</string>
     <string name="menu_poem">Poem</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <!-- Preference Titles -->
 
     <!-- Messages Preferences -->

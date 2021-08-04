@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -49,7 +50,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.fullscreen -> {
-            findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.fullscreenActivity)
+            val navController = findNavController(R.id.nav_host_fragment_content_main)
+            when (navController.currentDestination) {
+                NavDestination("io.goosople.poemtime.ui.home.HomeFragment") -> {
+                    navController.navigate(R.id.fullscreenActivity)
+                }
+                NavDestination("io.goosople.poemtime.PoemFragment") -> {
+                    // TODO: fix fsbutton
+                }
+            }
             true
         }
 

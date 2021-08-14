@@ -16,6 +16,7 @@
         android:gravity="center"
         android:text="@string/time_alt"
         android:textSize="80sp"
+        android:textColor="@color/text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -27,13 +28,14 @@
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:alpha="0.6"
+        android:alpha="0.5"
         android:fontFamily="@font/rubik"
         android:format12Hour="yyyy/MM/dd E"
         android:format24Hour="yyyy/MM/dd E"
         android:gravity="center"
         android:text="@string/date_alt"
         android:textSize="20sp"
+        android:textColor="@color/text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -49,7 +51,7 @@
         android:fontFamily="serif"
         android:gravity="center"
         android:textSize="25sp"
-        android:textColor="@color/poem"
+        android:textColor="@color/text"
         app:jrsc_refresh_on_click="true"
         app:jrsc_show_error="false"
         app:jrsc_show_loading_text="true"
@@ -66,7 +68,7 @@
         android:id="@+id/poemLocal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/poem"
+        android:textColor="@color/text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -87,6 +89,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/poemLocal"
         app:layout_constraintVertical_bias="0.05"
+        android:textColor="@color/text"
+        android:alpha="0.8"
         android:fontFamily="serif"
         android:gravity="center"
         android:textSize="20sp" />
@@ -121,6 +125,8 @@
             android:inputType="number"
             android:layout_weight="1"
             android:gravity="center"
+            android:alpha="0.6"
+            android:textColor="@color/text"
             tools:ignore="Autofill,HardcodedText,LabelFor" />
 
         <TextView
@@ -129,9 +135,11 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
+            android:alpha="0.6"
             android:text=" / 2362"
             android:textSize="15sp"
             android:layout_weight="1"
+            android:textColor="@color/text"
             tools:ignore="HardcodedText" />
 
         <ImageButton

@@ -10,46 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:id="@+id/time_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0">
-
-            <TextClock
-                android:id="@+id/time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/rubik_medium"
-                android:format12Hour="hh:mm"
-                android:format24Hour="HH:mm"
-                android:gravity="center"
-                android:text="@string/time_alt"
-                android:textColor="@color/text"
-                android:textSize="75sp" />
-
-            <TextClock
-                android:id="@+id/date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:alpha="0.5"
-                android:fontFamily="@font/rubik"
-                android:format12Hour="yyyy/MM/dd E"
-                android:format24Hour="yyyy/MM/dd E"
-                android:gravity="center"
-                android:text="@string/date_alt"
-                android:textColor="@color/text"
-                android:textSize="20sp" />
-
-        </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent" >
 
         <com.jinrishici.sdk.android.view.JinrishiciTextView
             android:id="@+id/poem"
@@ -58,7 +19,7 @@
             android:fontFamily="serif"
             android:gravity="center"
             android:textColor="@color/text"
-            android:textSize="25sp"
+            android:textSize="40sp"
             app:jrsc_refresh_on_click="true"
             app:jrsc_show_error="false"
             app:jrsc_show_loading_text="true"
@@ -68,9 +29,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/time_layout"
-            app:layout_constraintVertical_bias="0.1"
-            tools:ignore="TouchTargetSizeCheck" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0" />
 
         <TextView
             android:id="@+id/poemLocal"
@@ -79,13 +39,13 @@
             android:fontFamily="serif"
             android:gravity="center"
             android:textColor="@color/text"
-            android:textSize="25sp"
+            android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/time_layout"
-            app:layout_constraintVertical_bias="0.05" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0" />
 
         <TextView
             android:id="@+id/poemLocalDetail"
@@ -95,7 +55,7 @@
             android:fontFamily="serif"
             android:gravity="center"
             android:textColor="@color/text"
-            android:textSize="20sp"
+            android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -121,7 +81,7 @@
                 android:layout_weight="2"
                 android:background="#00000000"
                 android:src="@drawable/last"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <EditText
                 android:id="@+id/poem_num"
@@ -135,7 +95,7 @@
                 android:inputType="number"
                 android:textColor="@color/text"
                 android:textSize="15sp"
-                tools:ignore="Autofill,HardcodedText,LabelFor" />
+                tools:ignore="Autofill,HardcodedText,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <TextView
                 android:id="@+id/poem_total"
@@ -157,10 +117,11 @@
                 android:layout_weight="2"
                 android:background="#00000000"
                 android:src="@drawable/next"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

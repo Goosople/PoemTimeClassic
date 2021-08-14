@@ -1,13 +1,12 @@
 package io.goosople.poemtime
 
 
-import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.WindowInsets
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home
+                R.id.nav_home, R.id.poemFragment
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -51,14 +50,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.fullscreen -> {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                window.insetsController?.also {
-                    it.hide(WindowInsets.Type.statusBars())
-                    it.hide(WindowInsets.Type.navigationBars())
+            val navController = findNavController(R.id.nav_host_fragment_content_main)
+            when (navController.currentDestination) {
+                NavDestination("io.goosople.poemtime.ui.home.HomeFragment") -> {
+                    navController.navigate(R.id.fullscreenActivity)
                 }
-                supportActionBar?.hide()
-            } else {
-                findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.fullscreenActivity)
+                NavDestination("io.goosople.poemtime.PoemFragment") -> {
+                    // TODO: fix fsbutton
+                }
             }
             true
         }

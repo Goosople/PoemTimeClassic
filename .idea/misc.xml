@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android/PoemTime/app/src/main/res/drawable-anydpi/ic_menu_home.xml" value="0.3614583333333333" />
+        <entry key="..\:/Android/PoemTime/app/src/main/res/drawable-anydpi/ic_menu_poem.xml" value="0.3614583333333333" />
+        <entry key="..\:/Android/PoemTime/app/src/main/res/layout-land/fragment_home.xml" value="0.184375" />
+        <entry key="..\:/Android/PoemTime/app/src/main/res/layout-land/fragment_poem.xml" value="0.28677758318739055" />
+        <entry key="..\:/Android/PoemTime/app/src/main/res/layout/activity_fullscreen.xml" value="0.16523713420787084" />
+        <entry key="..\:/Android/PoemTime/app/src/main/res/layout/content_main.xml" value="0.16523713420787084" />
+        <entry key="..\:/Android/PoemTime/app/src/main/res/layout/fragment_home.xml" value="0.5" />
+        <entry key="..\:/Android/PoemTime/app/src/main/res/layout/fragment_poem.xml" value="0.223731884057971" />
+        <entry key="..\:/Android/PoemTime/app/src/main/res/layout/nav_header_main.xml" value="0.16523713420787084" />
+        <entry key="..\:/Android/PoemTime/app/src/main/res/layout/poem_fragment.xml" value="0.3411458333333333" />
+        <entry key="..\:/Android/PoemTime/app/src/main/res/menu/activity_main_drawer.xml" value="0.3411458333333333" />
+      </map>
+    </option>
+  </component>
   <component name="FindBugsConfigurable">
     <option name="make" value="true" />
     <option name="effort" value="default" />

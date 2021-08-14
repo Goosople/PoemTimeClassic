@@ -14,13 +14,16 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.时光的诗.NoActionBar">
+    <style name="Theme.时光的诗.NoActionBar" parent="Theme.时光的诗">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
     <style name="Theme.时光的诗.Fullscreen" parent="Theme.时光的诗.NoActionBar">
         <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
     <style name="Theme.时光的诗.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

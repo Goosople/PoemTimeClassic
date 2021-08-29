@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fslayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.时光的诗.Fullscreen"
+    android:background="#88f8f8f8" >
+    <fragment
+        android:id="@+id/fs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="FragmentTagUsage"
+        android:name="io.goosople.poemtime.PoemFragment"
+        tools:layout="@layout/fragment_poem" />
+</FrameLayout>

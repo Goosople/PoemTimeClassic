@@ -1,12 +1,13 @@
 package io.goosople.poemtime
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.NavDestination
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -14,6 +15,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import io.goosople.poemtime.databinding.ActivityMainBinding
+
+const val EXTRA_FRAGMENT = "io.goosople.poemtime.EXTRA_FRAGMENT"
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,21 +47,19 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main, menu)
+        if (findNavController(R.id.nav_host_fragment_content_main).currentDestination?.id != 2131296566){
+            menuInflater.inflate(R.menu.main, menu)
+        }
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.fullscreen -> {
             val navController = findNavController(R.id.nav_host_fragment_content_main)
-            when (navController.currentDestination) {
-                NavDestination("io.goosople.poemtime.ui.home.HomeFragment") -> {
-                    navController.navigate(R.id.fullscreenActivity)
-                }
-                NavDestination("io.goosople.poemtime.PoemFragment") -> {
-                    // TODO: fix fsbutton
-                }
+            val intent = Intent(this, FullscreenActivity::class.java).apply {
+                navController.currentDestination?.let { putExtra(EXTRA_FRAGMENT, it.id) }
             }
+            startActivity(intent)
             true
         }
 

@@ -6,22 +6,22 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home">
 
+    <include app:graph="@navigation/aboutlibs_navigation"/>
+
     <fragment
         android:id="@+id/nav_home"
         android:name="io.goosople.poemtime.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_nav_home_to_nav_settings"
-            app:destination="@id/nav_settings" />
-        <action
-            android:id="@+id/action_nav_home_to_fullscreenActivity"
-            app:destination="@id/fullscreenActivity" />
     </fragment>
     <fragment
         android:id="@+id/nav_settings"
         android:name="io.goosople.poemtime.SettingsFragment"
-        android:label="@string/menu_settings" />
+        android:label="@string/menu_settings" >
+        <action
+            android:id="@+id/action_nav_settings_to_about_libs"
+            app:destination="@id/about_libraries" />
+    </fragment>
     <activity
         android:id="@+id/fullscreenActivity"
         android:name="io.goosople.poemtime.FullscreenActivity"
@@ -32,9 +32,6 @@
         android:name="io.goosople.poemtime.PoemFragment"
         android:label="@string/menu_poem"
         tools:layout="@layout/fragment_poem" >
-        <action
-            android:id="@+id/action_poemFragment_to_fullscreenActivity"
-            app:destination="@id/fullscreenActivity" />
     </fragment>
 
 </navigation>

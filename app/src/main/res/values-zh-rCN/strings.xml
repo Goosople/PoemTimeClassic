@@ -22,4 +22,5 @@
     <string name="online_sum_on">允许应用在线获取诗词</string>
     <string name="online_sum_off">使用本地诗词</string>
     <string name="menu_poem">读诗</string>
+    <string name="aboutLibraries_description_text">时光的诗，让诗词如影随形。</string>
 </resources>

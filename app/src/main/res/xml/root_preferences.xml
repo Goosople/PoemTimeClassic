@@ -37,15 +37,19 @@
             app:summaryOff="@string/attachment_summary_off"
             app:summaryOn="@string/attachment_summary_on"
             app:title="@string/attachment_title" /> -->
+        <Preference
+            app:key="about"
+            app:title="@string/about" />
 
         <Preference
             app:key="feedback"
             app:title="@string/feedback"
-            app:summary="@string/feedback_sum" />
+            app:summary="@string/feedback_sum">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Goosople/PoemTime/issues"/>
+        </Preference>
 
-<!--        <Preference
-            app:key="about"
-            app:title="@string/about" /> -->
 
     </PreferenceCategory>
 

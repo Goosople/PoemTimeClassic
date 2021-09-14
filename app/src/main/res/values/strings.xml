@@ -30,4 +30,7 @@
     <!-- Messages Preferences -->
 
     <!-- Sync Preferences -->
+    <string name="aboutLibraries_description_showIcon" translatable="false">true</string>
+    <string name="aboutLibraries_description_showVersion" translatable="false">true</string>
+    <string name="aboutLibraries_description_text">PoemTime, Let Chinese culture walk into your life.</string>
 </resources>

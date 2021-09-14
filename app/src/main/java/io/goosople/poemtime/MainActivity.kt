@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        if (findNavController(R.id.nav_host_fragment_content_main).currentDestination?.id != 2131296566){
+        if (findNavController(R.id.nav_host_fragment_content_main).currentDestination?.id != R.id.nav_settings){
             menuInflater.inflate(R.menu.main, menu)
         }
         return true

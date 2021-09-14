@@ -12,15 +12,15 @@ class FullscreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        when (val fragment = intent.getIntExtra(EXTRA_FRAGMENT,2131296563)) {
-            2131296563 -> {
+        when (val fragment = intent.getIntExtra(EXTRA_FRAGMENT,R.id.nav_home)) {
+            R.id.nav_home -> {
                 setContentView(R.layout.activity_fullscreen)
             }
-            2131296602 -> {
+            R.id.poemFragment -> {
                 setContentView(R.layout.activity_fullscreen_poem)
             }
-            2131296566 -> {
-                Toast.makeText(this, "Setting CANNOT be fullscreen!\nPlease contact the developer to fix it.", Toast.LENGTH_SHORT).show()
+            R.id.nav_settings -> {
+                Toast.makeText(this, "\uD83D\uDC1EBug!\nPlease contact the developer to fix it.", Toast.LENGTH_SHORT).show()
                 onBackPressed()
             }
             else -> {

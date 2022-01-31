@@ -23,4 +23,6 @@
     <string name="online_sum_off">使用本地诗词</string>
     <string name="menu_poem">读诗</string>
     <string name="aboutLibraries_description_text">时光的诗，让诗词如影随形。</string>
+    <string name="settings_delay_title">切换诗句延时</string>
+    <string name="settings_delay_sum">点击 ▶ 以后切换诗句的时间，单位为秒</string>
 </resources>

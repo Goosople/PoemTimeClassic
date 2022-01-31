@@ -1,13 +1,11 @@
 package io.goosople.poemtime
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -47,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        if (findNavController(R.id.nav_host_fragment_content_main).currentDestination?.id != R.id.nav_settings){
+        if (findNavController(R.id.nav_host_fragment_content_main).currentDestination?.id != R.id.nav_settings) {
             menuInflater.inflate(R.menu.main, menu)
         }
         return true
@@ -69,7 +67,6 @@ class MainActivity : AppCompatActivity() {
             super.onOptionsItemSelected(item)
         }
     }
-
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)

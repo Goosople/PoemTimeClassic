@@ -6,6 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/autoPlayFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_round_play_arrow_24"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/pauseFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_round_pause_24"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="ContentDescription" />
+
     <TextClock
         android:id="@+id/time"
         android:layout_width="wrap_content"
@@ -130,16 +156,29 @@
             tools:ignore="Autofill,HardcodedText,LabelFor" />
 
         <TextView
+            android:id="@+id/slash"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:alpha="0.6"
+            android:gravity="center"
+            android:text="/"
+            android:textColor="@color/text"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
             android:id="@+id/poem_total"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:alpha="0.6"
-            android:text=" / 2362"
-            android:textSize="15sp"
             android:layout_weight="1"
+            android:alpha="0.6"
+            android:gravity="center"
+            android:text="2370"
             android:textColor="@color/text"
+            android:textSize="15sp"
             tools:ignore="HardcodedText" />
 
         <ImageButton

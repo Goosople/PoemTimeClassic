@@ -33,4 +33,6 @@
     <string name="aboutLibraries_description_showIcon" translatable="false">true</string>
     <string name="aboutLibraries_description_showVersion" translatable="false">true</string>
     <string name="aboutLibraries_description_text">PoemTime, Let Chinese culture walk into your life.</string>
+    <string name="settings_delay_title">Delay time while auto-changing</string>
+    <string name="settings_delay_sum">Delay time to change when you click ▶ (second)</string>
 </resources>

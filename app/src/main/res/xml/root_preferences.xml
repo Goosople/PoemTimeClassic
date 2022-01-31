@@ -1,53 +1,75 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!--    <PreferenceCategory app:title="@string/messages_header">
+    <!--    <PreferenceCategory app:title="@string/messages_header">
 
-        <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />
+            <EditTextPreference
+                app:key="signature"
+                app:title="@string/signature_title"
+                app:useSimpleSummaryProvider="true" />
 
-        <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
-            app:useSimpleSummaryProvider="true" />
+            <ListPreference
+                app:defaultValue="reply"
+                app:entries="@array/reply_entries"
+                app:entryValues="@array/reply_values"
+                app:key="reply"
+                app:title="@string/reply_title"
+                app:useSimpleSummaryProvider="true" />
 
-    </PreferenceCategory>  -->
+        </PreferenceCategory>  -->
 
     <SwitchPreference
-        android:defaultValue="true"
+        android:defaultValue="false"
         android:key="online_service"
-        android:title="@string/settings_online"
+        android:summaryOff="@string/online_sum_off"
         android:summaryOn="@string/online_sum_on"
-        android:summaryOff="@string/online_sum_off" />
+        android:title="@string/settings_online" />
+
+    <EditTextPreference
+        android:defaultValue="10"
+        android:key="delay"
+        android:selectAllOnFocus="true"
+        android:summary="@string/settings_delay_sum"
+        android:title="@string/settings_delay_title"
+        app:isPreferenceVisible="false" />
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="aztts"
+        android:title="Use Azure TTS"
+        app:isPreferenceVisible="false" />
+
+    <EditTextPreference
+        android:defaultValue=""
+        android:key="key"
+        android:selectAllOnFocus="true"
+        android:summary="Key to use Azure TTS"
+        android:title="Azure Key"
+        app:isPreferenceVisible="false" />
 
     <PreferenceCategory app:title="@string/about">
 
-<!--        <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
+        <!--        <SwitchPreferenceCompat
+                    app:key="sync"
+                    app:title="@string/sync_title" />
 
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" /> -->
+                <SwitchPreferenceCompat
+                    app:dependency="sync"
+                    app:key="attachment"
+                    app:summaryOff="@string/attachment_summary_off"
+                    app:summaryOn="@string/attachment_summary_on"
+                    app:title="@string/attachment_title" /> -->
         <Preference
             app:key="about"
             app:title="@string/about" />
 
         <Preference
             app:key="feedback"
-            app:title="@string/feedback"
-            app:summary="@string/feedback_sum">
+            app:summary="@string/feedback_sum"
+            app:title="@string/feedback">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/Goosople/PoemTime/issues"/>
+                android:data="https://github.com/Goosople/PoemTime/issues" />
         </Preference>
 
 

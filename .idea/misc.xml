@@ -3,21 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/PoemTime/app/src/main/res/drawable-anydpi/fullscreen.xml" value="0.147" />
         <entry key="..\:/Android/PoemTime/app/src/main/res/drawable-anydpi/ic_menu_home.xml" value="0.3614583333333333" />
         <entry key="..\:/Android/PoemTime/app/src/main/res/drawable-anydpi/ic_menu_poem.xml" value="0.3614583333333333" />
         <entry key="..\:/Android/PoemTime/app/src/main/res/drawable/ic_launcher_background.xml" value="0.11770833333333333" />
         <entry key="..\:/Android/PoemTime/app/src/main/res/drawable/ic_round_play_arrow_24.xml" value="0.2609375" />
-        <entry key="..\:/Android/PoemTime/app/src/main/res/layout-land/fragment_home.xml" value="0.67" />
+        <entry key="..\:/Android/PoemTime/app/src/main/res/drawable/ic_search_black_24dp.xml" value="0.147" />
+        <entry key="..\:/Android/PoemTime/app/src/main/res/layout-land/fragment_home.xml" value="0.12760416666666666" />
         <entry key="..\:/Android/PoemTime/app/src/main/res/layout-land/fragment_poem.xml" value="0.28677758318739055" />
         <entry key="..\:/Android/PoemTime/app/src/main/res/layout/activity_fullscreen.xml" value="0.16523713420787084" />
         <entry key="..\:/Android/PoemTime/app/src/main/res/layout/activity_fullscreen_poem.xml" value="0.1" />
         <entry key="..\:/Android/PoemTime/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
         <entry key="..\:/Android/PoemTime/app/src/main/res/layout/content_main.xml" value="0.16523713420787084" />
-        <entry key="..\:/Android/PoemTime/app/src/main/res/layout/fragment_home.xml" value="0.1165489404641776" />
+        <entry key="..\:/Android/PoemTime/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Android/PoemTime/app/src/main/res/layout/fragment_poem.xml" value="0.22" />
         <entry key="..\:/Android/PoemTime/app/src/main/res/layout/nav_header_main.xml" value="0.16523713420787084" />
         <entry key="..\:/Android/PoemTime/app/src/main/res/layout/poem_fragment.xml" value="0.3411458333333333" />
         <entry key="..\:/Android/PoemTime/app/src/main/res/menu/activity_main_drawer.xml" value="0.3411458333333333" />
+        <entry key="..\:/Android/PoemTime/app/src/main/res/menu/main.xml" value="0.23493360572012256" />
         <entry key="..\:/Android/PoemTime/app/src/main/res/menu/setting.xml" value="0.1712962962962963" />
         <entry key="..\:/Android/PoemTime/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.18802083333333333" />
         <entry key="..\:/Android/PoemTime/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.18802083333333333" />

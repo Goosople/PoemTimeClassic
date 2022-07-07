@@ -24,6 +24,7 @@ import io.goosople.poemtime.databinding.FragmentPoemBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
+import kotlin.math.ln
 
 private var _binding: FragmentPoemBinding? = null
 
@@ -32,7 +33,8 @@ private var _binding: FragmentPoemBinding? = null
 private val binding get() = _binding!!
 
 @Suppress("DEPRECATION")
-class PoemFragment : Fragment(), TextToSpeech.OnInitListener {
+class PoemFragment : Fragment(), TextToSpeech.OnInitListener,
+    SharedPreferences.OnSharedPreferenceChangeListener {
     private val poemTotalNum = PoemTimeUtils.poemTotalNumber
 
     override fun onCreateView(
@@ -42,8 +44,9 @@ class PoemFragment : Fragment(), TextToSpeech.OnInitListener {
         // Inflate the layout for this fragment
         _binding = FragmentPoemBinding.inflate(inflater, container, false)
 
+        var isAutoPlay: Boolean
         mTextToSpeech = TextToSpeech(activity, this)
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity)
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity!!)
         val onlineService = sharedPreferences.getBoolean("online_service", false)
         if (onlineService) {
             binding.poemLocal.visibility = View.GONE
@@ -65,7 +68,11 @@ class PoemFragment : Fragment(), TextToSpeech.OnInitListener {
                             poemInit(poemNum)
                             poemDetailNum(poemNum)
                             tts(sharedPreferences, binding.poemLocal.text.toString())
-                        }
+                        } else if (poemNum == poemTotalNum) tts(
+                            sharedPreferences,
+                            binding.poemLocal.text.toString()
+                        )
+                        else isAutoPlay = false
                     }
                     else -> {
                         Log.d("Handler", "Unexpected message")
@@ -74,7 +81,8 @@ class PoemFragment : Fragment(), TextToSpeech.OnInitListener {
                 false
             }
 
-            var isAutoPlay: Boolean
+            sharedPreferences.registerOnSharedPreferenceChangeListener(this)
+
             binding.pauseFAB.visibility = View.GONE
             binding.autoPlayFAB.setOnClickListener {
                 binding.pauseFAB.visibility = View.VISIBLE
@@ -87,7 +95,7 @@ class PoemFragment : Fragment(), TextToSpeech.OnInitListener {
                         val updateTimeMessage: Message = Message.obtain()
                         updateTimeMessage.what = 1234
                         tTaskHandler.sendMessage(updateTimeMessage)
-                        Thread.sleep(time * 1000)
+                        Thread.sleep(binding.poemLocal.length() * 1000 / time)
                     }
                 }.start()
             }
@@ -105,7 +113,7 @@ class PoemFragment : Fragment(), TextToSpeech.OnInitListener {
             }
             poemDetailNum(poemNum)
             poemInit(poemNum)
-            setEditTextRange(binding.poemNum, 1, 2362)
+            setEditTextRange(binding.poemNum, 1, PoemTimeUtils.poemTotalNumber + 1)
 
             binding.buttonLast.setOnClickListener {
                 poemNum = sharedPreferences.getInt("poemNum", 0)
@@ -148,6 +156,13 @@ class PoemFragment : Fragment(), TextToSpeech.OnInitListener {
         return binding.root
     }
 
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        val sP = PreferenceManager.getDefaultSharedPreferences(activity!!)
+        if (sP == sharedPreferences && key == "poemNum") {
+            poemInit(sP.getInt("poemNum", 0))
+            poemDetailNum(sP.getInt("poemNum", 0))
+        }
+    }
 
     private fun tts(sharedPreferences: SharedPreferences, text: String) {
         if (sharedPreferences.getBoolean("aztts", false)) {
@@ -184,10 +199,9 @@ class PoemFragment : Fragment(), TextToSpeech.OnInitListener {
         //设置播报语音音量（跟随手机音量调节而改变）
         val myHashAlarm = hashMapOf<String, String>()
         myHashAlarm[TextToSpeech.Engine.KEY_PARAM_STREAM] = AudioManager.STREAM_MUSIC.toString()
-        /**语音播报
-         *QUEUE_ADD：播放完之前的语音任务后才播报本次内容
-         *QUEUE_FLUSH：丢弃之前的播报任务，立即播报本次内容
-         */
+/*        语音播报
+        QUEUE_ADD：播放完之前的语音任务后才播报本次内容
+        QUEUE_FLUSH：丢弃之前的播报任务，立即播报本次内容 */
         mTextToSpeech.speak(text, TextToSpeech.QUEUE_ADD, myHashAlarm)
     }
 
@@ -206,8 +220,12 @@ class PoemFragment : Fragment(), TextToSpeech.OnInitListener {
     }
 
     private fun poemInit(num: Int) {
-        binding.poemLocal.text = getPoemContent(num, resources)
-        binding.poemLocalDetail.text = getPoemDetail(num, resources)
+        val poem = binding.poemLocal
+        val detail = binding.poemLocalDetail
+        poem.text = getPoemContent(num, resources)
+        detail.text = getPoemDetail(num, resources)
+        poem.textSize = 48 - 6 * ln(poem.length().toFloat())
+        detail.textSize = 36 - 6 * ln(detail.length().toFloat())
     }
 
     private fun poemDetailNum(num: Int) {

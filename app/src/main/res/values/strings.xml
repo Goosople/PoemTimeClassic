@@ -33,6 +33,9 @@
     <string name="aboutLibraries_description_showIcon" translatable="false">true</string>
     <string name="aboutLibraries_description_showVersion" translatable="false">true</string>
     <string name="aboutLibraries_description_text">PoemTime, Let Chinese culture walk into your life.</string>
-    <string name="settings_delay_title">Delay time while auto-changing</string>
-    <string name="settings_delay_sum">Delay time to change when you click ▶ (second)</string>
+    <string name="settings_delay_title">Reading speed (char/sec)</string>
+    <string name="settings_delay_sum">Characters you can read per sec. The speed to change a verse depends on it.</string>
+    <string name="search">Search</string>
+    <string name="start">start</string>
+    <string name="end">ended</string>
 </resources>

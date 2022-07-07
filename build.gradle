@@ -9,8 +9,8 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.1.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30"
+        classpath 'com.android.tools.build:gradle:7.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10"
         classpath "com.mikepenz.aboutlibraries.plugin:aboutlibraries-plugin:8.9.1"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -25,6 +25,7 @@ allprojects {
         maven{
             url "https://csspeechstorage.blob.core.windows.net/maven/"
         }
+        //noinspection JcenterRepositoryObsolete
         jcenter() // Warning: this repository is going to shut down soon
     }
 }

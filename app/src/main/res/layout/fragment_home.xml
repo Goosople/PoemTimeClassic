@@ -17,7 +17,7 @@
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription,ImageContrastCheck,DuplicateClickableBoundsCheck,SpeakableTextPresentCheck" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/pauseFAB"
@@ -30,7 +30,7 @@
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
 
     <TextClock
         android:id="@+id/time"
@@ -41,8 +41,8 @@
         android:format24Hour="HH:mm"
         android:gravity="center"
         android:text="@string/time_alt"
-        android:textSize="80sp"
         android:textColor="@color/text"
+        android:textSize="80sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -60,8 +60,8 @@
         android:format24Hour="yyyy/MM/dd E"
         android:gravity="center"
         android:text="@string/date_alt"
-        android:textSize="20sp"
         android:textColor="@color/text"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -70,127 +70,137 @@
         app:layout_constraintVertical_bias="0.05" />
 
 
-    <com.jinrishici.sdk.android.view.JinrishiciTextView
-        android:id="@+id/poem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:textColor="@color/text"
-        app:jrsc_refresh_on_click="true"
-        app:jrsc_show_error="false"
-        app:jrsc_show_loading_text="true"
-        app:jrsc_text_error="@string/error"
-        app:jrsc_text_loading="@string/poem_alt"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/date"
-        app:layout_constraintVertical_bias="0.1" />
-
-    <TextView
-        android:id="@+id/poemLocal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/date"
-        app:layout_constraintVertical_bias="0.05"
-        android:fontFamily="serif"
-        android:gravity="center"
-        android:textSize="25sp" />
-
-    <TextView
-        android:id="@+id/poemLocalDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/poemLocal"
-        app:layout_constraintVertical_bias="0.05"
-        android:textColor="@color/text"
-        android:alpha="0.8"
-        android:fontFamily="serif"
-        android:gravity="center"
-        android:textSize="20sp" />
-
-    <LinearLayout
-        android:id="@+id/con"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/poemLocalDetail"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintHeight_min="150dp"
+        app:layout_constraintTop_toBottomOf="@id/date">
 
-        <ImageButton
-            android:id="@+id/button_last"
-            android:background="#00000000"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/last"
-            android:layout_weight="2"
-            tools:ignore="ContentDescription" />
-
-        <EditText
-            android:id="@+id/poem_num"
-            android:layout_width="0dp"
+        <com.jinrishici.sdk.android.view.JinrishiciTextView
+            android:id="@+id/poem"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:textSize="15sp"
-            android:imeOptions="actionDone"
-            android:inputType="number"
-            android:layout_weight="1"
+            android:fontFamily="serif"
             android:gravity="center"
-            android:alpha="0.6"
             android:textColor="@color/text"
-            tools:ignore="Autofill,HardcodedText,LabelFor" />
+            android:textSize="25sp"
+            app:jrsc_refresh_on_click="true"
+            app:jrsc_show_error="false"
+            app:jrsc_show_loading_text="true"
+            app:jrsc_text_error="@string/error"
+            app:jrsc_text_loading="@string/poem_alt"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
-            android:id="@+id/slash"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:alpha="0.6"
+            android:id="@+id/poemLocal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
             android:gravity="center"
-            android:text="/"
             android:textColor="@color/text"
-            android:textSize="15sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.05" />
 
         <TextView
-            android:id="@+id/poem_total"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:alpha="0.6"
+            android:id="@+id/poemLocalDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:fontFamily="serif"
             android:gravity="center"
-            android:text="2370"
             android:textColor="@color/text"
-            android:textSize="15sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/poemLocal"
+            app:layout_constraintVertical_bias="0.05" />
 
-        <ImageButton
-            android:id="@+id/button_next"
-            android:background="#00000000"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/next"
-            android:layout_weight="2"
-            tools:ignore="ContentDescription" />
+        <LinearLayout
+            android:id="@+id/con"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/poemLocalDetail"
+            app:layout_constraintVertical_bias="0.5">
 
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/button_last"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="#00000000"
+                android:src="@drawable/last"
+                tools:ignore="ContentDescription,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <EditText
+                android:id="@+id/poem_num"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:alpha="0.6"
+                android:ems="10"
+                android:gravity="center"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:textColor="@color/text"
+                android:textSize="15sp"
+                tools:ignore="Autofill,HardcodedText,LabelFor,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/slash"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:alpha="0.6"
+                android:gravity="center"
+                android:text="/"
+                android:textColor="@color/text"
+                android:textSize="15sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/poem_total"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:alpha="0.6"
+                android:gravity="center"
+                android:text="2370"
+                android:textColor="@color/text"
+                android:textSize="15sp"
+                tools:ignore="HardcodedText" />
+
+            <ImageButton
+                android:id="@+id/button_next"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="#00000000"
+                android:src="@drawable/next"
+                tools:ignore="ContentDescription,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

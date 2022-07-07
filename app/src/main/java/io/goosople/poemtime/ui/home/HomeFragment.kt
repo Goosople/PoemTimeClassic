@@ -28,7 +28,8 @@ import kotlinx.coroutines.launch
 import java.util.*
 
 @Suppress("DEPRECATION")
-class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
+class HomeFragment : Fragment(), TextToSpeech.OnInitListener,
+    SharedPreferences.OnSharedPreferenceChangeListener {
     private val poemTotalNum = PoemTimeUtils.poemTotalNumber
 
     private lateinit var homeViewModel: HomeViewModel
@@ -44,12 +45,13 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
         savedInstanceState: Bundle?
     ): View {
         homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+            ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+        var isAutoPlay: Boolean
         mTextToSpeech = TextToSpeech(activity, this)
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity)
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity!!)
         val onlineService = sharedPreferences.getBoolean("online_service", false)
         if (onlineService) {
             binding.poemLocal.visibility = View.GONE
@@ -71,7 +73,11 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
                             poemInit(poemNum)
                             poemDetailNum(poemNum)
                             tts(sharedPreferences, binding.poemLocal.text.toString())
-                        }
+                        } else if (poemNum == poemTotalNum) tts(
+                            sharedPreferences,
+                            binding.poemLocal.text.toString()
+                        )
+                        else isAutoPlay = false
                     }
                     else -> {
                         Log.d("Handler", "Unexpected message")
@@ -80,7 +86,8 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
                 false
             }
 
-            var isAutoPlay: Boolean
+            sharedPreferences.registerOnSharedPreferenceChangeListener(this)
+
             binding.pauseFAB.visibility = View.GONE
             binding.autoPlayFAB.setOnClickListener {
                 binding.pauseFAB.visibility = View.VISIBLE
@@ -93,7 +100,7 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
                         val updateTimeMessage: Message = Message.obtain()
                         updateTimeMessage.what = 1234
                         tTaskHandler.sendMessage(updateTimeMessage)
-                        Thread.sleep(time * 1000)
+                        Thread.sleep(binding.poemLocal.length() * 1000 / time)
                     }
                 }.start()
             }
@@ -111,7 +118,7 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
             }
             poemDetailNum(poemNum)
             poemInit(poemNum)
-            setEditTextRange(binding.poemNum, 1, 2362)
+            setEditTextRange(binding.poemNum, 1, PoemTimeUtils.poemTotalNumber + 1)
 
             binding.buttonLast.setOnClickListener {
                 poemNum = sharedPreferences.getInt("poemNum", 0)
@@ -151,6 +158,14 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
             }
         }
         return binding.root
+    }
+
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        val sP = PreferenceManager.getDefaultSharedPreferences(activity!!)
+        if (sP == sharedPreferences && key == "poemNum") {
+            poemInit(sP.getInt("poemNum", 0))
+            poemDetailNum(sP.getInt("poemNum", 0))
+        }
     }
 
     private fun poemInit(num: Int) {
@@ -220,6 +235,8 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
     }
 
     override fun onDestroyView() {
+        PreferenceManager.getDefaultSharedPreferences(activity!!)
+            .unregisterOnSharedPreferenceChangeListener(this)
         super.onDestroyView()
         _binding = null
     }

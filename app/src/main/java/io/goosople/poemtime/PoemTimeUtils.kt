@@ -15,7 +15,7 @@ class PoemTimeUtils {
         const val poemTotalNumber = 2369
 
         fun setEditTextRange(editText: EditText, min: Int, max: Int) {
-            val watcher = object : TextWatcher {
+            editText.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(
                     s: CharSequence,
                     start: Int,
@@ -30,7 +30,7 @@ class PoemTimeUtils {
                     Log.d("onTextChanged", "s=$s; start=$start; before=$before; count=$count")
                     // 拿到数字
                     if (s.toString().isNotEmpty()) {
-                        var value = Integer.valueOf(s.toString())
+                        val value = Integer.valueOf(s.toString())
                         if (s.toString().substring(0, 1).contains("0") && value != 0) {
                             // 第一个字为0
                             editText.setText(value.toString())
@@ -40,27 +40,7 @@ class PoemTimeUtils {
                         if (value < min) {
                             editText.setText(min.toString())
                         } else if (value > max) {
-                            // 移除最老的第一个数试试看
-                            var ads = s.toString().substring(1)
-                            if (ads.isEmpty()) ads = "0"
-                            val ad = ads.toInt()
-                            if (ad in min..max) {
-                                editText.setText(ad.toString())
-                            } else {
-                                // 排除输入的最后一个是0
-                                var ssr = s.toString().substring(0, s.toString().length - 1)
-                                if (ssr.contains("0")) {
-                                    // 移除最老的0
-                                    ssr = (s.toString().substring(0, s.toString().indexOf("0"))
-                                            + s.toString().substring(s.toString().indexOf("0") + 1))
-                                    value = Integer.valueOf(ssr)
-                                    if (value in min..max) {
-                                        editText.setText(value.toString())
-                                        return
-                                    }
-                                }
-                                editText.setText(max.toString())
-                            }
+                            editText.setText(max.toString())
                         }
                         return
                     }
@@ -70,8 +50,7 @@ class PoemTimeUtils {
                 override fun afterTextChanged(s: Editable) {
                     Log.d("afterTextChanged", "s=$s")
                 }
-            }
-            editText.addTextChangedListener(watcher)
+            })
         }
 
         private fun getKeyString(num: Int, jsonString: String, key: String): String {
@@ -93,8 +72,21 @@ class PoemTimeUtils {
 
         fun getPoemDetail(num: Int, resources: Resources): String {
             val poet = getKeyString(num, getPoemData(resources), "poet")
-            val title = getKeyString(num, getPoemData(resources), "title")
-            return "《$title》$poet"
+            return "《${getPoemTitle(num, resources)}》$poet"
+        }
+
+        private fun getPoemTitle(num: Int, resources: Resources): String {
+            return getKeyString(num, getPoemData(resources), "title")
+        }
+
+        fun search(query: String, resources: Resources): Int {
+            Log.d("search", query)
+            for (i in 0..poemTotalNumber)
+                if (getPoemTitle(i, resources).contains(query)) {
+                    Log.d("search", i.toString())
+                    return i
+                }
+            return -1
         }
     }
 }

@@ -31,12 +31,14 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val numberPreference: EditTextPreference = findPreference("delay")!!
         val azureKeyPreference: EditTextPreference = findPreference("key")!!
         val azurePreference: SwitchPreference = findPreference("aztts")!!
-        if (!PreferenceManager.getDefaultSharedPreferences(activity!!)
+        if (!PreferenceManager.getDefaultSharedPreferences(requireContext())
                 .getBoolean("online_service", false)
         ) numberPreference.isVisible = true
         azurePreference.isVisible = numberPreference.isVisible
         azureKeyPreference.isVisible =
-            (azurePreference.isVisible && PreferenceManager.getDefaultSharedPreferences(activity!!)
+            (azurePreference.isVisible && PreferenceManager.getDefaultSharedPreferences(
+                requireContext()
+            )
                 .getBoolean("aztts", false))
         numberPreference.setOnBindEditTextListener { editText ->
             editText.inputType = InputType.TYPE_CLASS_NUMBER
@@ -46,7 +48,9 @@ class SettingsFragment : PreferenceFragmentCompat() {
             numberPreference.isVisible = newValue != true
             azurePreference.isVisible = numberPreference.isVisible
             azureKeyPreference.isVisible =
-                (azurePreference.isVisible && PreferenceManager.getDefaultSharedPreferences(activity!!)
+                (azurePreference.isVisible && PreferenceManager.getDefaultSharedPreferences(
+                    requireContext()
+                )
                     .getBoolean("aztts", false))
             return@setOnPreferenceChangeListener true
         }

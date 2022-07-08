@@ -50,8 +50,8 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener,
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         var isAutoPlay: Boolean
-        mTextToSpeech = TextToSpeech(activity, this)
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity!!)
+        mTextToSpeech = TextToSpeech(requireContext(), this)
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
         val onlineService = sharedPreferences.getBoolean("online_service", false)
         if (onlineService) {
             binding.poemLocal.visibility = View.GONE
@@ -161,7 +161,7 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener,
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        val sP = PreferenceManager.getDefaultSharedPreferences(activity!!)
+        val sP = PreferenceManager.getDefaultSharedPreferences(requireContext())
         if (sP == sharedPreferences && key == "poemNum") {
             poemInit(sP.getInt("poemNum", 0))
             poemDetailNum(sP.getInt("poemNum", 0))
@@ -203,7 +203,7 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener,
     private fun sysTTS(text: String) {
         if (!isSupport) {
             Toast.makeText(
-                activity,
+                requireContext(),
                 "Your phone don't support TTS, \nplease use Azure TTS.",
                 Toast.LENGTH_SHORT
             ).show()
@@ -235,7 +235,7 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener,
     }
 
     override fun onDestroyView() {
-        PreferenceManager.getDefaultSharedPreferences(activity!!)
+        PreferenceManager.getDefaultSharedPreferences(requireContext())
             .unregisterOnSharedPreferenceChangeListener(this)
         super.onDestroyView()
         _binding = null
